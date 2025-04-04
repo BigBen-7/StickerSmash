@@ -1,34 +1,40 @@
-import { Link } from "expo-router";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Image } from "expo-image";
+import { StyleSheet, Text, View } from "react-native";
+
+import ImageViewer from "@/components/ImageViewer";
+import Button from "@/components/Button";
+
+const PlaceholderImage = require("@/assets/images/background-image.png");
 
 const index = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home Screen</Text>
-      <Link href="/about" style={styles.button}>
-        Go to About screen
-      </Link>
+      <View>
+        <ImageViewer imgSource={PlaceholderImage} />
+      </View>
+      <View style={styles.footerContainer}>
+        <Button theme="primary" label="Choose a photo" />
+        <Button  label="use this photo" />
+      </View>
     </View>
   );
 };
 
 export default index;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#25292e",
+    backgroundColor: '#25292e',
+    alignItems: 'center',
   },
-  text: {
-    color: "#fff",
-    fontSize: 24,
+  imageContainer: {
+    flex: 1,
+    paddingTop: 28,
   },
-  button: {
-    fontSize: 20,
-    textDecorationLine: "underline",
-    color: "#fff",
+  footerContainer: {
+    flex: 1 / 3,
+    alignItems: 'center',
   },
 });
+
 // This is a simple React Native component that displays a welcome message and a button.
