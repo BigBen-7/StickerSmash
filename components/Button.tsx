@@ -4,9 +4,10 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 type Props = {
   label: string;
   theme?: "primary";
+  onPress?: () => void;
 };
 
-export default function Button({ label, theme }: Props) {
+export default function Button({ label, theme, onPress }: Props) {
   if (theme === "primary") {
     return (
       <View
@@ -17,7 +18,7 @@ export default function Button({ label, theme }: Props) {
       >
         <Pressable
           style={[styles.button, { backgroundColor: "#fff" }]}
-          onPress={() => alert("You pressed a button.")}
+          onPress={onPress}
         >
           <FontAwesome
             name="picture-o"
@@ -46,28 +47,28 @@ export default function Button({ label, theme }: Props) {
 }
 
 const styles = StyleSheet.create({
-    buttonContainer: {
-      width: 320,
-      height: 68,
-      marginHorizontal: 20,
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: 3,
-      marginTop: 30,
-    },
-    button: {
-      borderRadius: 10,
-      width: '100%',
-      height: '100%',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'row',
-    },
-    buttonIcon: {
-      paddingRight: 8,
-    },
-    buttonLabel: {
-      color: '#fff',
-      fontSize: 16,
-    },
-  });
+  buttonContainer: {
+    width: 320,
+    height: 68,
+    marginHorizontal: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 3,
+    marginTop: 30,
+  },
+  button: {
+    borderRadius: 10,
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+  buttonIcon: {
+    paddingRight: 8,
+  },
+  buttonLabel: {
+    color: "#fff",
+    fontSize: 16,
+  },
+});
